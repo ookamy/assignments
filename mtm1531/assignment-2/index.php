@@ -57,7 +57,7 @@ $result = $answer*1.13;
 		</select>
 		<button>Start calculation process</button>
 		<!--<p><?php if($n1 == '' || $n2 == '') { echo 'Enter values!'; } ?></p> -->
-		<h2><?php setlocale(LC_MONETARY, 'en_US'); echo money_format($fm, $result) . "\n"; ?></h2>
+		<h2><?php setlocale(LC_MONETARY, 'en_CAD'); echo money_format($fm, $result) . "\n"; ?></h2>
 	</form>
 	</body>
 </html>
