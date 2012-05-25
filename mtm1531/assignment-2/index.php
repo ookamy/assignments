@@ -41,7 +41,7 @@ $result = $answer*1.13;
 	</head>
 	
 	<body>
-	<h1>High-speed digital electronic machine for automated calculations</h1>
+	<h1>High-speed digital electronic machine for automated money calculations</h1>
 	<p><strong>Enter values in the fields below and select operation</strong></p>
 	<form method="post" action="index.php">
 		<label for="n1">Number 1</label>
@@ -57,7 +57,7 @@ $result = $answer*1.13;
 		</select>
 		<button>Start calculation process</button>
 		<!--<p><?php if($n1 == '' || $n2 == '') { echo 'Enter values!'; } ?></p> -->
-		<h2><?php setlocale(LC_MONETARY, 'en_US'); echo money_format($fm, $result) . "\n"; ?></h2>
+		<h2><?php setlocale(LC_MONETARY, 'en_CA'); echo money_format($fm, $result) . "\n"; ?></h2>
 	</form>
 	</body>
 </html>
