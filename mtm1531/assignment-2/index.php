@@ -50,10 +50,10 @@ $result = $answer*1.13;
 		<input type="number" id="n2" name="n2" value="">
 		<label for="oper">Operation</label>
 		<select id="oper" name="oper">
-			<option value="+">addition</option>
-			<option value="-">subtraction</option>
-			<option value="*">multiplication</option>
-			<option value="/">division</option>
+			<option value="+">+, addition</option>
+			<option value="-">-, subtraction</option>
+			<option value="*">*, multiplication</option>
+			<option value="/">/, division</option>
 		</select>
 		<button>Start calculation process</button>
 		<!--<p><?php if($n1 == '' || $n2 == '') { echo 'Enter values!'; } ?></p> -->
