@@ -1,0 +1,8 @@
+.done {
+	color: #0ff;
+	text-decoration: line-through;
+}
+
+li {
+    cursor: pointer;
+}
