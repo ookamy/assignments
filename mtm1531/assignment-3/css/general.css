@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	font: 100%/1.5 normal Arial, Helvetica, sans-serif;
+}
+
+.error {
+	color: #F00;
+}
+
+form {
+	width: 21em;
+	height: 28em;
+	background-color: #CF9;
+	margin: 2em;
+	padding: 1em;
+	border: solid 2px #006600;
+	border-radius: 5px;
+}
+
+label {
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+input {
+	margin-top: 1em;
+}
+
+
+.lang {
+	margin: 1em 0;
+}
