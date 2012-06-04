@@ -1,0 +1,20 @@
+body {
+   font: 100%/1.5 Arial, Helvetica, sans-serif;
+}
+
+#circle {
+    background-color: #0F0;
+    border: 12px solid #000000;
+	margin: 1em auto;
+    border-radius: 120px;
+    font-size: 8em;
+    font-weight: bold;
+    height: 200px;
+    left: 5px;
+    text-align: center;
+    width: 200px;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+}
