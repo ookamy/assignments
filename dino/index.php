@@ -18,6 +18,7 @@ $results = $sql->fetchAll();
 	</head>
 
 	<body>
+	<a href="add.php">Add a Dino</a>
 	<?php foreach ($results as $dino) : ?>
 	
 		<h2>
