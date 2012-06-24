@@ -1,0 +1,27 @@
+1.	SELECT * 
+	FROM movies 
+	WHERE id = 1
+
+2.  SELECT title, released 
+    FROM movies 
+	WHERE id < 4 
+	ORDER BY title ASC
+
+3.  SELECT title, director, released
+    FROM movies
+    ORDER BY released DESC
+	
+4.  UPDATE movies 
+	SET title = 'Forest Gump', director = 'Robert Zemeckis' WHERE id = 1
+	
+5.  INSERT INTO movies (title, released, director) 
+	VALUES ('Terminator', '1984', 'James Cameron')
+
+6.	DELETE FROM movies 
+	WHERE id = 6
+
+7.  SELECT * 
+	FROM movies 
+	WHERE title 
+	LIKE 's'
+	ORDER BY director DESC
