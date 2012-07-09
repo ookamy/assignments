@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+#blue {
+	margin: 10em 0 0 71.7em;
+	background-image: url(../img/b.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 210px;
+}
+
+#red {
+	margin: -20.95em 0 0 70.1em;
+	background-image: url(../img/r.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 80px;
+}
+
+
+#green {
+	margin: -22em 0 0 69em;
+	background-image: url(../img/g.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 133px;
+}
+
+
+#yellow {
+	margin: -14em 0 0 67.6em;
+	background-image: url(../img/y.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 38px;
+}
+
+#tabs {
+	margin: 2em auto;
+	width: 25em;
+	height: 20em;
+}
+
+a {
+	display: inline;
+	text-decoration: none;
+}
+
+li {
+	display: inline;
+	list-style-type: none;
+	margin: 0 2em;
+}
+
+nav {
+	margin: 1em auto;
+	text-align: center;
+}
+
+.ctab {
+	text-decoration: underline;
+}
