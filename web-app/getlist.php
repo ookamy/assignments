@@ -1,31 +1,72 @@
 <?php
 require_once 'includes/db.php';
 
+$articles = filter_input(INPUT_POST, 'articles', FILTER_SANITIZE_STRING);
+$pronouns = filter_input(INPUT_POST, 'pronouns', FILTER_SANITIZE_STRING);
+$prepos = filter_input(INPUT_POST, 'prepos', FILTER_SANITIZE_STRING);
+$pronounslist = array('i','you','he','she','it','we','they','him','his','her','their','those','these');
+$preposlist = array('to','for','by','on','as','from','of','with','in','and','or','at');
+$wordsexclusion = filter_input(INPUT_POST, 'uwords', FILTER_SANITIZE_NUMBER_INT);
+
+
+if (isset($articles)){
+			$sql = $db->prepare('
+			DELETE FROM wordslist
+			WHERE (word = "the" or word = "a" or word = "an")
+			');
+			$sql->execute();
+};
+
+if (isset($pronouns)){
+			foreach ($pronounslist as $p){
+			$sql = $db->prepare('
+			DELETE FROM wordslist
+			WHERE word = :p
+			');
+			$sql->bindValue(':p', $p, PDO::PARAM_STR);
+			$sql->execute();
+			}
+};
+
+if (isset($prepos)){
+			foreach ($preposlist as $pr){
+			$sql = $db->prepare('
+			DELETE FROM wordslist
+			WHERE word = :pr
+			');
+			$sql->bindValue(':pr', $pr, PDO::PARAM_STR);
+			$sql->execute();
+			}
+};
+
+if ($wordsexclusion > 0 ){
+			
+			$sql = $db-> prepare ('
+			SELECT word
+			FROM 1000words
+			WHERE id < :wexcl
+			ORDER BY id ASC
+			');
+			$sql->bindValue(':wexcl', $wordsexclusion, PDO::PARAM_INT);
+			$sql->execute();
+			$excludewords = $sql->fetchAll();
+			foreach ($excludewords as $wexclude){
+			$sql = $db->prepare('
+			DELETE FROM wordslist
+			WHERE word = :wexclude
+			');
+			$sql->bindValue(':wexclude', $wexclude[0], PDO::PARAM_STR);
+			$sql->execute();
+			}
+};
+
 $sql = $db->query('
 SELECT id, word, frq
 FROM wordslist
 ORDER BY frq DESC
 ');
-// Display the last error created by our database
-//var_dump($db->errorInfo());
 $results = $sql->fetchAll();
 $num = 1;
-
-$articles = filter_input(INPUT_POST, 'articles', FILTER_SANITIZE_STRING);
-$pronouns = filter_input(INPUT_POST, 'pronouns', FILTER_SANITIZE_STRING);
-$prepos = filter_input(INPUT_POST, 'prepos', FILTER_SANITIZE_STRING);
-
-echo $articles;
-echo $pronouns;
-echo $prepos;
-
-/*if (!isset($_POST['articles']))
- {
- 
- $errors['articles'] = true;
- echo "articles excluded"; 
- }
-*/
 
 ?><!DOCTYPE HTML>
 <html>
@@ -39,9 +80,10 @@ echo $prepos;
 <h1>List of words used in the text</h1>
 <p>Total words used in text: <?php //echo $wordsnumber;?></p>
 <p>Excluded: 
-	<?php if (isset($articles)){echo "Articles ";}; 
+	<?php if (isset($articles)) {echo "Articles ";};
 		  if (isset($pronouns)){echo "Pronouns ";};
-		  if (isset($prepos)){echo "Prepositions";}; ?></p>
+		  if (isset($prepos)){echo "Prepositions";};
+		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo "words";}; ?></p>
 	<table border="1">
 		<tr>
 			<td>#</td>

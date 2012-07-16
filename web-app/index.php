@@ -69,11 +69,11 @@ $sql->execute();
 		<div>
 		  <fieldset class="exclusion1">
 			<legend>Exclude most used words from the list</legend>
-			<input type="radio" id="100words" name="uwords" value="100w"<?php if ($uwords == '100w') { echo ' checked'; } ?>>
+			<input type="radio" id="100words" name="uwords" value="100"<?php if ($uwords == '100') { echo ' checked'; } ?>>
 			<label for="100words">100 words</label>
-			<input type="radio" id="500words" name="uwords" value="500w"<?php if ($uwords == '500w') { echo ' checked'; } ?>>
+			<input type="radio" id="500words" name="uwords" value="500"<?php if ($uwords == '500') { echo ' checked'; } ?>>
 			<label for="500words">500 words</label>
-			<input type="radio" id="1000words" name="uwords" value="1000w"<?php if ($uwords == '1000w') { echo ' checked'; } ?>>
+			<input type="radio" id="1000words" name="uwords" value="1000"<?php if ($uwords == '1000') { echo ' checked'; } ?>>
 			<label for="1000words">1000 words</label>
 		  </fieldset>
 		</div>
