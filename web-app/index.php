@@ -84,6 +84,8 @@ $sql->execute();
 			<label for="articles">Articles</label>
 			<input type="checkbox" id="pronouns" name="pronouns" value="1">
 			<label for="articles">Pronouns</label>
+			<input type="checkbox" id="prepos" name="prepos" value="1">
+			<label for="articles">Prepositions</label>
 		</div>
 			<button type="submit">Get list</button>
 	</form>
