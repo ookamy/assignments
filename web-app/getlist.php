@@ -80,14 +80,14 @@ $num = 1;
 <h1>List of words used in the text</h1>
 <p>Total words used in text: <?php //echo $wordsnumber;?></p>
 <p>Excluded: 
-	<?php if (isset($articles)) {echo "Articles ";};
-		  if (isset($pronouns)){echo "Pronouns ";};
-		  if (isset($prepos)){echo "Prepositions";};
-		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo "words";}; ?></p>
+	<?php if (isset($articles)) {echo "articles ";};
+		  if (isset($pronouns)){echo "pronouns ";};
+		  if (isset($prepos)){echo "prepositions ";};
+		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo " most used words";}; ?></p>
 	<table border="1">
 		<tr>
-			<td>#</td>
-			<td>Word</td>
+			<td><strong>#</strong></td>
+			<td><strong>Word</strong></td>
 			<td>Used</td>
 		</tr>
 <?php foreach ($results as $list) : ?>

@@ -29,6 +29,8 @@ WHERE id >= 0
 ');
 $sql->execute();
 
+$sql_commands = array();
+
 foreach  (array_keys($wordslist) as $value)
 {	
 	//echo $value;
@@ -37,17 +39,16 @@ foreach  (array_keys($wordslist) as $value)
 	//echo "<br/>";
 	next($wordslist);
 	
-$sql = $db->prepare('
-INSERT INTO wordslist (word, frq)
-VALUES (:word, :frq)
-');
-$sql->bindValue(':word', $value, PDO::PARAM_STR);
-$sql->bindValue(':frq', $c_frq, PDO::PARAM_INT);
-$sql->execute();
-//usleep(500000);
-//header('Location: C:\wamp\www\webap\index.php');
-//exit;
+	$sql_commands[] = '("'.$value.'", '.$c_frq.')';
+
+	//usleep(500000);
+	//header('Location: C:\wamp\www\webap\index.php');
+	//exit;
 }
+
+$sql_string = 'INSERT INTO wordslist (word, frq) VALUES ' . implode(',', $sql_commands);
+$db->query($sql_string);
+
 ?>
 <!DOCTYPE HTML>
 <html>
