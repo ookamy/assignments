@@ -84,19 +84,24 @@ $num = 1;
 		  if (isset($pronouns)){echo "pronouns ";};
 		  if (isset($prepos)){echo "prepositions ";};
 		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo " most used words";}; ?></p>
+	<form method="post" action="final-list.php">
 	<table border="1">
 		<tr>
 			<td><strong>#</strong></td>
 			<td><strong>Word</strong></td>
 			<td>Used</td>
+			<td>Checked</td>
 		</tr>
 <?php foreach ($results as $list) : ?>
 		<tr>
 			<td><?php echo $num ?></td>
 			<td><?php echo $list['word']; ?></td>
 			<td><?php echo $list['frq']; $num++; ?></td>
+			<td><input type="checkbox" id="<?php echo "w"; echo $num; ?>" name="wordscheckbox" value="1"></td>
 		</tr>
 <?php endforeach; ?>
 	</table>
+	<button type="submit">Get list</button>
+	</form>
 </body>
 </html>
