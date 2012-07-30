@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/db.php';
 
+session_start();
+
 $articles = filter_input(INPUT_POST, 'articles', FILTER_SANITIZE_STRING);
 $pronouns = filter_input(INPUT_POST, 'pronouns', FILTER_SANITIZE_STRING);
 $prepos = filter_input(INPUT_POST, 'prepos', FILTER_SANITIZE_STRING);
@@ -79,29 +81,30 @@ $num = 1;
 
 <h1>List of words used in the text</h1>
 <p>Total words used in text: <?php //echo $wordsnumber;?></p>
-<p>Excluded: 
+<p>Excluded: <strong>
 	<?php if (isset($articles)) {echo "articles ";};
 		  if (isset($pronouns)){echo "pronouns ";};
 		  if (isset($prepos)){echo "prepositions ";};
-		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo " most used words";}; ?></p>
+		  if ($wordsexclusion > 0 ) {echo $wordsexclusion; echo " most used words";}; ?></strong></p>
 	<form method="post" action="final-list.php">
 	<table border="1">
 		<tr>
 			<td><strong>#</strong></td>
 			<td><strong>Word</strong></td>
 			<td>Used</td>
-			<td>Checked</td>
+			<td>To Final list</td>
 		</tr>
 <?php foreach ($results as $list) : ?>
 		<tr>
 			<td><?php echo $num ?></td>
-			<td><?php echo $list['word']; ?></td>
-			<td><?php echo $list['frq']; $num++; ?></td>
-			<td><input type="checkbox" id="<?php echo "w"; echo $num; ?>" name="wordscheckbox" value="1"></td>
+			<td><label for="<?php echo "w"; echo $num;?>"><?php echo $list['word']; ?></label></td>
+			<td><?php echo $list['frq'];  ?></td>
+			<td><input type="checkbox" id="<?php echo "w"; echo $num;?>" name="<?php echo "w"; echo $num; $num++;?>" value="<?php echo $list['word']; ?>"></td>
 		</tr>
 <?php endforeach; ?>
 	</table>
-	<button type="submit">Get list</button>
+    <?php $_SESSION['wordscounter']=$num; ?>
+	<button type="submit">Get final list</button>
 	</form>
 </body>
 </html>
