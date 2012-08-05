@@ -1,0 +1,62 @@
+a {
+	display: inline;
+	text-decoration: none;
+}
+
+ul {
+	margin: 0 auto;
+	display: inline;
+	text-align: center;
+}
+
+li {
+	display: inline;
+	list-style-type: none;
+	margin: 0 2em;
+}
+
+nav {
+	background-color: #6CC;
+	margin: 1em auto;
+	text-align: center;
+}
+
+#tabs {
+	margin: 2em auto;
+	width: 25em;
+	height: 20em;
+	background-color: #FC9;
+	text-align: center;
+}
+
+.ctab {
+	text-decoration: underline;
+}
+
+#divblue {
+	background-color: #36C;
+	margin: 0 auto;
+	width: 22em;
+	height: 15em;
+}
+
+#divred {
+	background-color: #F00;
+	margin: 0 auto;
+	width: 22em;
+	height: 15em;
+}
+
+#divgreen {
+	background-color: #3C0;
+	margin: 0 auto;
+	width: 22em;
+	height: 15em;
+}
+
+#divyellow {
+	background-color: #FC0;
+	margin: 0 auto;
+	width: 22em;
+	height: 15em;
+}
