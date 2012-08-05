@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IMM1526 Form Validation</title>
+        <link href="css/general.css" rel="stylesheet">
+    </head>
+
+    <body>
+	    <form>
+		<div>
+  	       <label for="username">Username</label>
+            <input id="username" name="username" required>
+    			<strong class="user-available" data-status="unchecked">Available</strong>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            	<strong>Password Requirements</strong>
+                <ul class="pass-reqs">
+                    <li class="pass-length">At least 6 characters</li>
+                    <li class="pass-lowercase">1 lowercase letter</li>
+                    <li class="pass-uppercase">1 uppercase letter</li>
+                    <li class="pass-number">1 number</li>
+                    <li class="pass-symbol">1 symbol</li>
+                </ul>
+        </div>
+        <div>
+			<label for="email">E-mail</label>
+			<input type="email" id="email" name="email">
+				<strong class="email-available" data-event="unchecked">Available</strong>
+        </div>
+        <div>
+			<label for="city">City</label>
+			<input id="city" name="city">
+				<strong class="city-invalid" data-invalid="unchecked"></strong>
+        </div>
+        <div>
+			<fieldset>
+				<legend>Country</legend>
+				<input type="radio" id="canada" name="country" value="canada">
+				<label for="canada">Canada</label>
+				<input type="radio" id="usa" name="country" value="usa">
+				<label for="usa">USA</label>
+			</fieldset>
+        </div>
+		<div class="country"></div>
+		<button type="submit">Submit</button>
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/form-validation.js"></script>
+    </body>
+</html>

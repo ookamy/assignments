@@ -1,0 +1,80 @@
+strong{
+display: block;
+}
+
+form {
+	display: block;
+	width: 20em;
+	border: solid 1px;
+	margin: 2em auto;
+	padding: 2em;
+}
+
+.user-available {
+font-size: 1.125em;
+}
+
+.user-available:before {
+content: "✔";
+}
+
+.user-available[data-status="unavailable"]:before {
+content: "✖";
+}
+
+.user-available[data-status="unchecked"] {
+display: none;
+}
+
+.user-available[data-status="available"] {
+color: #0C0;
+}
+
+.user-available[data-status="unavailable"] {
+color: #F30;
+}
+
+.user-available[data-status="unavailable"]:before {
+content: "✖";
+}
+
+pass-reqs {
+list-style-type: none;
+}
+
+.pass-reqs li:before {
+color: #F30;
+font-size: 1.125em;
+content: "✖";
+}
+
+.pass-reqs li[data-state="achieved"]:before {
+color: #0C0;
+content: "✔";
+}
+
+.email-available[data-event="unchecked"] {
+display: none;
+}
+
+.email-available {
+	font-size: 1.125em;
+}
+
+.email-available[data-event="unavailable"] {
+	color: #F30;
+}
+
+.email-available[data-event="available"] {
+	color: #0C0;
+}
+
+.city-invalid[data-status="invalid-cityname"] {
+color: #F30;
+font-size: 1.125em;
+}
+
+.city-invalid[data-status="valid-cityname"] {
+color: #0C0;
+font-size: 1.125em;
+}
