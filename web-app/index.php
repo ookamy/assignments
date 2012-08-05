@@ -29,6 +29,11 @@ WHERE id >= 0
 ');
 $sql->execute();
 
+<<<<<<< HEAD
+=======
+$sql_commands = array();
+
+>>>>>>> origin/master
 foreach  (array_keys($wordslist) as $value)
 {	
 	//echo $value;
@@ -37,6 +42,7 @@ foreach  (array_keys($wordslist) as $value)
 	//echo "<br/>";
 	next($wordslist);
 	
+<<<<<<< HEAD
 $sql = $db->prepare('
 INSERT INTO wordslist (word, frq)
 VALUES (:word, :frq)
@@ -48,6 +54,18 @@ $sql->execute();
 //header('Location: C:\wamp\www\webap\index.php');
 //exit;
 }
+=======
+	$sql_commands[] = '("'.$value.'", '.$c_frq.')';
+
+	//usleep(500000);
+	//header('Location: C:\wamp\www\webap\index.php');
+	//exit;
+}
+
+$sql_string = 'INSERT INTO wordslist (word, frq) VALUES ' . implode(',', $sql_commands);
+$db->query($sql_string);
+
+>>>>>>> origin/master
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -69,11 +87,19 @@ $sql->execute();
 		<div>
 		  <fieldset class="exclusion1">
 			<legend>Exclude most used words from the list</legend>
+<<<<<<< HEAD
 			<input type="radio" id="100words" name="uwords" value="100w"<?php if ($uwords == '100w') { echo ' checked'; } ?>>
 			<label for="100words">100 words</label>
 			<input type="radio" id="500words" name="uwords" value="500w"<?php if ($uwords == '500w') { echo ' checked'; } ?>>
 			<label for="500words">500 words</label>
 			<input type="radio" id="1000words" name="uwords" value="1000w"<?php if ($uwords == '1000w') { echo ' checked'; } ?>>
+=======
+			<input type="radio" id="100words" name="uwords" value="100"<?php if ($uwords == '100') { echo ' checked'; } ?>>
+			<label for="100words">100 words</label>
+			<input type="radio" id="500words" name="uwords" value="500"<?php if ($uwords == '500') { echo ' checked'; } ?>>
+			<label for="500words">500 words</label>
+			<input type="radio" id="1000words" name="uwords" value="1000"<?php if ($uwords == '1000') { echo ' checked'; } ?>>
+>>>>>>> origin/master
 			<label for="1000words">1000 words</label>
 		  </fieldset>
 		</div>
@@ -84,6 +110,11 @@ $sql->execute();
 			<label for="articles">Articles</label>
 			<input type="checkbox" id="pronouns" name="pronouns" value="1">
 			<label for="articles">Pronouns</label>
+<<<<<<< HEAD
+=======
+			<input type="checkbox" id="prepos" name="prepos" value="1">
+			<label for="articles">Prepositions</label>
+>>>>>>> origin/master
 		</div>
 			<button type="submit">Get list</button>
 	</form>

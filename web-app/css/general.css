@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 #text {
 	width: 300px;
 	height: 100px;
+=======
+body {
+	margin: 2em auto;
+	width: 800px;
+}
+
+#text {
+	width: 400px;
+	height: 400px;
+>>>>>>> origin/master
 }
 
 fieldset {
